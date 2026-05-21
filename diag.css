@@ -709,3 +709,495 @@ border-radius:20px;
 ::-webkit-scrollbar-thumb:hover{
 background:#334155;
 }
+/* =====================================================
+   MAPA INDUSTRIAL
+===================================================== */
+
+.mapa-industrial{
+margin-top:35px;
+background:#0f172a;
+border:1px solid #1f2937;
+border-radius:20px;
+padding:25px;
+}
+
+.titulo-mapa{
+font-size:1.4rem;
+font-weight:800;
+margin-bottom:25px;
+color:#fff;
+text-align:center;
+}
+
+.planta-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:18px;
+}
+
+.zona{
+background:#111827;
+border:1px solid #1f2937;
+border-radius:16px;
+padding:18px;
+min-height:160px;
+position:relative;
+transition:.3s;
+}
+
+.zona:hover{
+transform:translateY(-3px);
+}
+
+.zona h3{
+color:#fff;
+margin-bottom:12px;
+font-size:1rem;
+}
+
+.zona p{
+color:#94a3b8;
+font-size:.9rem;
+}
+
+.zona-normal{
+border-left:5px solid #22c55e;
+}
+
+.zona-media{
+border-left:5px solid #f59e0b;
+}
+
+.zona-peligro{
+border-left:5px solid #ef4444;
+animation:peligroZona 1s infinite;
+}
+
+.zona-segura{
+border-left:5px solid #06b6d4;
+}
+
+.centro-control{
+border-left:5px solid #2563eb;
+}
+
+.salida-box{
+border-left:5px solid #10b981;
+}
+
+/* ===== SENSORES ===== */
+
+.sensor-item{
+margin-top:10px;
+font-size:.92rem;
+color:#e5e7eb;
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.sensor-dot{
+width:10px;
+height:10px;
+border-radius:50%;
+display:inline-block;
+}
+
+.sensor-dot.temp{
+background:#ef4444;
+}
+
+.sensor-dot.ruido{
+background:#f59e0b;
+}
+
+.sensor-mini{
+width:14px;
+height:14px;
+border-radius:50%;
+margin-bottom:10px;
+}
+
+.online{
+background:#22c55e;
+box-shadow:0 0 12px #22c55e;
+}
+
+.alerta{
+background:#ef4444;
+box-shadow:0 0 12px #ef4444;
+animation:parpadeo 1s infinite;
+}
+
+/* ===== ESTADOS ===== */
+
+.estado-zona{
+margin-top:14px;
+padding:8px;
+border-radius:10px;
+font-size:.82rem;
+font-weight:700;
+text-align:center;
+background:#1e293b;
+color:#fff;
+}
+
+.online-box{
+margin-top:15px;
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:700;
+color:#22c55e;
+}
+
+.online-dot{
+width:12px;
+height:12px;
+border-radius:50%;
+background:#22c55e;
+box-shadow:0 0 10px #22c55e;
+}
+
+.seguro-box{
+margin-top:16px;
+background:#064e3b;
+padding:10px;
+border-radius:10px;
+text-align:center;
+font-weight:700;
+color:#6ee7b7;
+}
+
+.salida-alerta{
+margin-top:16px;
+background:#052e16;
+padding:10px;
+border-radius:10px;
+text-align:center;
+font-weight:700;
+color:#4ade80;
+}
+
+.dato-zona{
+margin-top:12px;
+font-size:.88rem;
+color:#cbd5e1;
+}
+
+.mini-kpi{
+margin-top:15px;
+background:#1e293b;
+padding:10px;
+border-radius:10px;
+text-align:center;
+font-size:.82rem;
+font-weight:700;
+color:#fff;
+}
+
+/* ===== ANIMACIONES ===== */
+
+@keyframes peligroZona{
+0%,100%{
+box-shadow:0 0 0 rgba(239,68,68,0);
+}
+50%{
+box-shadow:0 0 18px rgba(239,68,68,.35);
+}
+}
+
+@keyframes parpadeo{
+0%,100%{
+opacity:1;
+}
+50%{
+opacity:.3;
+}
+}
+/* =====================================================
+   ALERTAS DENTRO DEL CROQUIS
+===================================================== */
+
+.alerta-mapa{
+margin-bottom:12px;
+padding:8px 10px;
+border-radius:10px;
+font-size:.75rem;
+font-weight:800;
+text-align:center;
+letter-spacing:.5px;
+animation:alertaPulse 1.2s infinite;
+}
+
+.alerta-roja{
+background:#7f1d1d;
+color:#fecaca;
+border:1px solid #ef4444;
+box-shadow:0 0 18px rgba(239,68,68,.35);
+}
+
+.alerta-media{
+background:#78350f;
+color:#fde68a;
+border:1px solid #f59e0b;
+box-shadow:0 0 14px rgba(245,158,11,.25);
+}
+
+.alerta-verde{
+background:#052e16;
+color:#bbf7d0;
+border:1px solid #22c55e;
+animation:none;
+}
+
+@keyframes alertaPulse{
+
+0%,100%{
+transform:scale(1);
+opacity:1;
+}
+
+50%{
+transform:scale(1.03);
+opacity:.82;
+}
+
+}
+/* =====================================================
+   MAPA INDUSTRIAL INTELIGENTE
+===================================================== */
+
+.mapa-industrial{
+margin-top:30px;
+padding:25px;
+background:#0f172a;
+border:1px solid #1f2937;
+border-radius:22px;
+}
+
+.titulo-mapa{
+font-size:1.4rem;
+font-weight:800;
+margin-bottom:22px;
+color:#fff;
+text-align:center;
+}
+
+.planta-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+}
+
+.zona{
+background:#111827;
+border:1px solid #1f2937;
+border-radius:18px;
+padding:18px;
+position:relative;
+transition:.3s;
+}
+
+.zona:hover{
+transform:translateY(-3px);
+}
+
+.zona h3{
+font-size:1rem;
+margin-bottom:12px;
+color:#fff;
+}
+
+.zona p{
+font-size:.9rem;
+color:#94a3b8;
+}
+
+.zona-normal{
+border-left:5px solid #00c853;
+}
+
+.zona-media{
+border-left:5px solid #ffb300;
+animation:parpadeoMedio 1.5s infinite;
+}
+
+.zona-peligro{
+border-left:5px solid #ff5252;
+animation:parpadeoPeligro 1s infinite;
+}
+
+.zona-segura{
+border-left:5px solid #00e676;
+}
+
+.centro-control{
+border-left:5px solid #2563eb;
+}
+
+.salida-box{
+border-left:5px solid #f97316;
+}
+
+/* ===== SENSORES ===== */
+
+.sensor-mini{
+width:14px;
+height:14px;
+border-radius:50%;
+margin-bottom:10px;
+}
+
+.online{
+background:#00e676;
+box-shadow:0 0 10px #00e676;
+}
+
+.alerta{
+background:#ff5252;
+box-shadow:0 0 14px #ff5252;
+animation:alertaSensor .8s infinite;
+}
+
+.sensor-item{
+margin:10px 0;
+font-size:.95rem;
+color:#e5e7eb;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.sensor-dot{
+width:10px;
+height:10px;
+border-radius:50%;
+display:inline-block;
+}
+
+.sensor-dot.temp{
+background:#ff7043;
+}
+
+.sensor-dot.ruido{
+background:#29b6f6;
+}
+
+/* ===== DATOS ===== */
+
+.dato-zona{
+margin-top:10px;
+font-size:.9rem;
+color:#cbd5e1;
+}
+
+.estado-zona{
+margin-top:14px;
+padding:10px;
+border-radius:12px;
+background:#0b1220;
+font-weight:700;
+text-align:center;
+font-size:.9rem;
+}
+
+/* ===== ONLINE ===== */
+
+.online-box{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:12px;
+font-weight:700;
+color:#22c55e;
+}
+
+.online-dot{
+width:12px;
+height:12px;
+border-radius:50%;
+background:#22c55e;
+box-shadow:0 0 12px #22c55e;
+animation:pulsoOnline 1.4s infinite;
+}
+
+.mini-kpi{
+margin-top:14px;
+font-size:.9rem;
+color:#cbd5e1;
+}
+
+/* ===== ALERTAS ===== */
+
+.salida-alerta{
+margin-top:12px;
+padding:10px;
+border-radius:10px;
+background:#f97316;
+font-weight:700;
+text-align:center;
+color:#fff;
+}
+
+.seguro-box{
+margin-top:12px;
+padding:10px;
+border-radius:10px;
+background:#00c853;
+font-weight:700;
+text-align:center;
+color:#fff;
+}
+
+/* ===== ANIMACIONES ===== */
+
+@keyframes alertaSensor{
+
+0%,100%{
+opacity:1;
+}
+
+50%{
+opacity:.3;
+}
+
+}
+
+@keyframes parpadeoPeligro{
+
+0%,100%{
+box-shadow:0 0 0 rgba(255,82,82,0);
+}
+
+50%{
+box-shadow:0 0 22px rgba(255,82,82,.5);
+}
+
+}
+
+@keyframes parpadeoMedio{
+
+0%,100%{
+box-shadow:0 0 0 rgba(255,179,0,0);
+}
+
+50%{
+box-shadow:0 0 18px rgba(255,179,0,.35);
+}
+
+}
+
+@keyframes pulsoOnline{
+
+0%,100%{
+transform:scale(1);
+opacity:1;
+}
+
+50%{
+transform:scale(1.15);
+opacity:.6;
+}
+
+}
