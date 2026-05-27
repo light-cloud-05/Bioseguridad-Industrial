@@ -3,83 +3,168 @@
 
 <head>
 
+<!-- =====================================================
+     CONFIGURACIÓN GENERAL
+===================================================== -->
+
+<!-- Codificación UTF-8 -->
 <meta charset="UTF-8">
+
+<!-- Responsive para celulares -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bioseguridad Industrial | Centro de Control</title>
+<!-- Título de la pestaña -->
+<title>
+Smart Industrial Safety | Bioseguridad Industrial
+</title>
 
-<meta name="description"
-content="Sistema inteligente de bioseguridad industrial con monitoreo en tiempo real, sensores y Firebase.">
+<!-- Descripción SEO -->
+<meta
+name="description"
+content="Sistema inteligente de bioseguridad industrial con monitoreo en tiempo real, sensores IoT y Firebase."
+>
 
+<!-- Color del navegador móvil -->
 <meta name="theme-color" content="#0b1220">
+
+<!-- =====================================================
+     CSS PRINCIPAL
+===================================================== -->
 
 <link rel="stylesheet" href="diag.css">
 
-<!-- FUENTE -->
+<!-- =====================================================
+     GOOGLE FONTS
+===================================================== -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin
+>
 
-<!-- ICONO -->
+<!-- Fuente Inter -->
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
+<!-- =====================================================
+     ICONO DE LA PESTAÑA
+===================================================== -->
+
 <link rel="icon"
 href="data:image/svg+xml,
 <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
 <text y=%22.9em%22 font-size=%2290%22>🛡️</text>
 </svg>">
 
-<!-- FIREBASE -->
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<!-- Librería principal -->
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+<!-- Base de datos realtime -->
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
 </head>
 
 <body>
 
-<!-- FONDO DECORATIVO -->
+<!-- =====================================================
+     FONDOS DECORATIVOS
+===================================================== -->
+
 <div class="bg-blur one"></div>
 <div class="bg-blur two"></div>
 
-<!-- NAVBAR -->
+<!-- =====================================================
+     NAVBAR SUPERIOR
+===================================================== -->
+
 <header class="navbar">
 
+<!-- LOGO Y TITULO -->
 <div class="logo-box">
 
-<h1>BIOSEGURIDAD INDUSTRIAL</h1>
+<!-- Nombre del sistema -->
+<h1>
+SMART INDUSTRIAL SAFETY
+</h1>
 
+<!-- Subtitulo -->
 <span class="sub-logo">
-Centro Corporativo de Monitoreo Inteligente
+
+Plataforma IoT para Prevención Industrial
+
 </span>
+
+<!-- EMPRESAS RELACIONADAS -->
+<div class="empresas-rel">
+
+<span>PIL Andina</span>
+
+<span>Nestlé</span>
 
 </div>
 
+</div>
+
+<!-- =====================================================
+     MENÚ PRINCIPAL
+===================================================== -->
+
 <ul class="menu">
 
-<li data-section="preavance" class="active">
+<!-- Botón preavance -->
+<li
+data-section="preavance"
+class="active"
+>
+
 PRE-AVANCE
+
 </li>
 
-<li data-section="practica_total">
+<!-- Botón simulación -->
+<li
+data-section="practica_total"
+>
+
 SIMULACIÓN PRÁCTICA
+
 </li>
 
 </ul>
 
 </header>
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- =====================================================
+     CONTENIDO PRINCIPAL
+===================================================== -->
+
 <main id="main-container">
 
 <section id="dynamic-content">
 
-<!-- LOADER -->
+<!-- =====================================================
+     LOADER INICIAL
+===================================================== -->
 
 <div class="loader-box">
 
+<!-- Animación -->
 <div class="loader-spin"></div>
 
+<!-- Texto -->
 <p>
-Inicializando sistema de monitoreo...
+
+Conectando plataforma IoT con Firebase...
+
 </p>
 
 </div>
@@ -88,13 +173,23 @@ Inicializando sistema de monitoreo...
 
 </main>
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer class="footer-pro">
 
+<!-- Texto principal -->
 <p>
-Plataforma Inteligente de Seguridad Industrial • Monitoreo en Tiempo Real
+
+Sistema Inteligente de Prevención Industrial
+• IoT
+• Firebase
+• Monitoreo Predictivo
+
 </p>
 
+<!-- Estado -->
 <p class="mini-footer">
 
 Estado Operativo:
@@ -108,7 +203,10 @@ Estado Operativo:
 
 </footer>
 
-<!-- SCRIPT -->
+<!-- =====================================================
+     JAVASCRIPT PRINCIPAL
+===================================================== -->
+
 <script src="seg.js"></script>
 
 </body>
