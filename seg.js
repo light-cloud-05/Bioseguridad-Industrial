@@ -774,7 +774,7 @@ CONTROL ESTABLE
 `;
 
 }
-
+renderGrafico();
 };
 
 /* ========= NAVEGACION ========= */
@@ -822,48 +822,50 @@ cargarInterfazPractica("scz");
 
 /* ========= FIREBASE ========= */
 
-database.ref("bioseguridad/sc")
-.on("value",(snap)=>{
+database.ref("bioseguridad/sc").on("value",(snap)=>{
 
-datosSCZ = snap.val() || datosSCZ;
+const d = snap.val() || {};
 
-historialRuido.push(
-parseInt(datosSCZ.ruido)||0
-);
+datosSCZ = {
+temperatura: d.temperatura ?? "0",
+ruido: d.ruido ?? "0",
+casco: d.casco ?? "No",
+guantes: d.guantes ?? "No",
+operario: d.operario ?? "Sin dato"
+};
 
-if(historialRuido.length>10)
-historialRuido.shift();
+historialRuido.push(parseInt(d.ruido)||0);
+if(historialRuido.length>10) historialRuido.shift();
 
-if(
-subPaginaActual=="scz" &&
-document.querySelector(".practico-pro")
-){
-
+if(subPaginaActual=="scz" && document.querySelector(".practico-pro")){
 cargarInterfazPractica("scz");
-
 }
+historialRuido.push(parseInt(d.ruido)||0);
+if(historialRuido.length>10) historialRuido.shift();
 
+renderGrafico();
 });
 
-database.ref("bioseguridad/int")
-.on("value",(snap)=>{
+database.ref("bioseguridad/int").on("value",(snap)=>{
 
-datosINT = snap.val() || datosINT;
+const d = snap.val() || {};
 
-historialAire.push(
-parseInt(datosINT.aire)||0
-);
+datosINT = {
+aire: d.aire ?? "0",
+gas: d.gas ?? "0",
+zona: d.zona ?? "Sin dato",
+movimiento: d.movimiento ?? "Sin dato",
+estado: d.estado ?? "Sin dato"
+};
 
-if(historialAire.length>10)
-historialAire.shift();
+historialAire.push(parseInt(d.aire)||0);
+if(historialAire.length>10) historialAire.shift();
 
-if(
-subPaginaActual=="int" &&
-document.querySelector(".practico-pro")
-){
-
+if(subPaginaActual=="int" && document.querySelector(".practico-pro")){
 cargarInterfazPractica("int");
-
 }
+historialAire.push(parseInt(d.aire)||0);
+if(historialAire.length>10) historialAire.shift();
 
+renderGrafico();
 });
