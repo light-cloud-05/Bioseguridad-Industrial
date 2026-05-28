@@ -11,6 +11,7 @@ authDomain:"bioseguridad-industrial.firebaseapp.com",
 databaseURL:"https://bioseguridad-industrial-default-rtdb.firebaseio.com",
 projectId:"bioseguridad-industrial"
 };
+   
 
 firebase.initializeApp(firebaseConfig);
 
@@ -20,8 +21,8 @@ const database = firebase.database();
 
 let subPaginaActual = "scz";
 
-let alarmaActiva = false;
-
+let intervaloAlarma = null;
+let audioCtx = null;
 let historialRuido = [];
 let historialAire = [];
 
@@ -191,40 +192,57 @@ if(b<a) return "BAJANDO";
 
 return "ESTABLE";
 
+}function sonarAlarma(){
+
+    if(intervaloAlarma) return;
+
+    if(!audioCtx){
+
+        audioCtx =
+        new(window.AudioContext || window.webkitAudioContext)();
+
+    }
+
+    if(audioCtx.state === "suspended"){
+        audioCtx.resume();
+    }
+
+    intervaloAlarma = setInterval(()=>{
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = "square";
+        osc.frequency.setValueAtTime(
+            700,
+            audioCtx.currentTime
+        );
+
+        gain.gain.setValueAtTime(
+            0.2,
+            audioCtx.currentTime
+        );
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+
+        osc.stop(audioCtx.currentTime + 0.3);
+
+    },1000);
+
 }
 
-function sonarAlarma(){
+function detenerAlarma(){
 
-if(alarmaActiva) return;
+    if(intervaloAlarma){
 
-alarmaActiva = true;
+        clearInterval(intervaloAlarma);
 
-const ctx =
-new(window.AudioContext||window.webkitAudioContext)();
+        intervaloAlarma = null;
 
-const osc = ctx.createOscillator();
-
-const gain = ctx.createGain();
-
-osc.type = "square";
-
-osc.frequency.value = 700;
-
-osc.connect(gain);
-
-gain.connect(ctx.destination);
-
-gain.gain.value = 0.05;
-
-osc.start();
-
-setTimeout(()=>{
-
-osc.stop();
-
-alarmaActiva = false;
-
-},350);
+    }
 
 }
 
@@ -252,7 +270,15 @@ let riesgo =
 (t>34 || r>75) ? "MEDIO" :
 "BAJO";
 
-if(riesgo=="ALTO") sonarAlarma();
+if(riesgo=="ALTO"){
+
+    sonarAlarma();
+
+}else{
+
+    detenerAlarma();
+
+}
 
 panel.innerHTML = `
 
@@ -522,7 +548,15 @@ let riesgo =
 (a<80 || g>40) ? "MEDIO" :
 "BAJO";
 
-if(riesgo=="ALTO") sonarAlarma();
+if(riesgo=="ALTO"){
+
+    sonarAlarma();
+
+}else{
+
+    detenerAlarma();
+
+}
 
 panel.innerHTML = `
 
@@ -796,6 +830,24 @@ document.getElementById("dynamic-content")
 /* ========= INICIO ========= */
 
 window.onload = ()=>{
+   document.addEventListener("click",()=>{
+
+    const AudioContext =
+    window.AudioContext || window.webkitAudioContext;
+
+    if(AudioContext){
+
+        const ctx = new AudioContext();
+
+        if(ctx.state === "suspended"){
+
+            ctx.resume();
+
+        }
+
+    }
+
+},{once:true});
 
 volverAPizarra();
 
