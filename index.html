@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- =====================================================
+         CONFIGURACIÓN GENERAL
+    ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Industrial Safety </title>
+    <meta name="description" content="Plataforma de clase mundial para bioseguridad industrial con monitoreo IoT, IA y Firebase.">
+    <meta name="theme-color" content="#0b1220">
+
+    <!-- =====================================================
+         RECURSOS EXTERNOS (Fuentes, Iconos, Gráficos)
+    ===================================================== -->
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Iconografía Industrial -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js para Gráficos Dinámicos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="diag.css">
+
+    <!-- Icono de pestaña -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
+    <!-- =====================================================
+         FIREBASE
+    ===================================================== -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+
+    <!-- =====================================================
+         IoT Central
+    ===================================================== -->
+    <div class="bg-blur one"></div>
+    <div class="bg-blur two"></div>
+    <div class="bg-blur three"></div>
+    <!-- ===================================================== 
+          SUPERIOR 
+    ===================================================== -->
+    <nav class="navbar glass-panel">
+        <div class="logo-box">
+            <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="logo-text">
+                <h1>SMART INDUSTRIAL SAFETY</h1>
+                <span class="sub-logo">Plataforma IoT de Prevención </span>
+            </div>
+        </div>
+
+        <ul class="menu">
+            <li data-section="preavance" class="active"><i class="fa-solid fa-rocket"></i> Dashboard Principal</li>
+            <li data-section="practica_total"><i class="fa-solid fa-satellite-dish"></i> Live Ops (Simulación)</li>
+        </ul>
+    </nav>
+
+    <!-- =====================================================
+         CONTENEDOR PRINCIPAL 
+    ===================================================== -->
+    <main id="main-container">
+        <section id="dynamic-content">
+            <!-- Loader Inicial Estilo Siemens MindSphere -->
+            <div class="loader-box glass-panel">
+                <div class="iot-loader">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <p>Estableciendo conexión segura con Firebase RTDB...</p>
+                <span class="loader-status">Autenticando nodos de red <i class="fa-solid fa-lock"></i></span>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER 
+    ===================================================== -->
+    <footer class="footer-pro glass-panel">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <i class="fa-solid fa-industry"></i>
+                <span>Smart Industrial Safety Platform</span>
+            </div>
+            <div class="footer-status">
+                <span class="status-dot"></span>
+                <span>Gateway IoT: <strong>EN LÍNEA</strong></span>
+            </div>
+            <div class="footer-tech">
+                <i class="fa-brands fa-html5"></i>
+                <i class="fa-brands fa-css3-alt"></i>
+                <i class="fa-brands fa-js"></i>
+                <i class="fa-solid fa-database"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================
+         JAVASCRIPT PRINCIPAL
+    ===================================================== -->
+    <script src="seg.js"></script>
+</body>
+</html>
